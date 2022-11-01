@@ -1,14 +1,14 @@
 <div class="login">
 
   <img class="login-background" src="../../../assets/img/background-devkimiro.png" alt="background">
-  <img class="login-logo" src="../../../assets/img/logo-background.png" alt="background-logo">
+  <img class="login-logo" src="../../../assets/img/DevKimiro.png" alt="background-logo">
 
   <main class="w-100 h-100 d-flex justify-content-center align-items-center">
 
     <div class="box-login rounded-3 d-flex justify-content-center align-items-center flex-column">
 
       <div class="titulo mb-5 py-5">
-        <h1>Ponto de Horas</h1>
+        <h1 class="fw-3">Ponto de Horas</h1>
       </div>
 
       <div class="w-100">
@@ -22,7 +22,7 @@
         <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
             <mat-label>Senha:</mat-label>
                 <input matInput [type]="hide ? 'password' : 'text'"
-                class="input" formControlName="password">
+                class="input" placeholder="Digite aqui sua senha..." formControlName="password">
                <button mat-icon-button matSuffix (click)="hide= !hide"
                 [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon class="password">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -43,7 +43,7 @@
   </main>
 
     <footer class="rodape d-flex justify-content-center align-items-center">
-        <span>Todos os direitos reservado @2022</span>
+        <span>Todos os direitos reservados @2022</span>
     </footer>
 
 </div>
