@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { PrincipalComponent } from './components/principal/principal.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full' , redirectTo: 'login'},
   {path: 'login', component: LoginComponent},
-  {path: 'navbar', component: NavbarComponent}
+  {path: 'principal', component: PrincipalComponent}
 ];
 
 @NgModule({

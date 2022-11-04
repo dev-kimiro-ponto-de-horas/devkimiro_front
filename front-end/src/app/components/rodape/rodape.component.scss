@@ -1,0 +1,15 @@
+.rodape {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    //background-color: #5553FF;
+    background-color:rgba(91, 89, 236, 1);
+
+    span {
+        font-size: 1.2em;
+        color: white;
+        transition: all 0.3s ease-in-out;
+    }
+}
