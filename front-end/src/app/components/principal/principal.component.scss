@@ -9,24 +9,43 @@
     height: 100%;
   }
 
-  .elemento {
-    gap: 50%;
+  .espaco-card {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(7, 9, 12, 0.75);
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+  }
 
-    .tamanho-icone {
-      width: 5em;
+  .elemento {
+    gap: 30%;
+    color: white;
+
+    .espaco-elemento {
+      background-color: rgba(255, 255, 255, 0.20);
+      border-radius: 30px;
+    }
+
+    .imagem-usuario {
+      width: 10em;
     }
   }
 
+}
+
+.info {
+  background-color: gray;
+  z-index: 5;
 }
 
 .clock {
   border-radius: 50%;
   background: #fff url(../../../assets/img/ios_clock.svg) no-repeat center;
   background-size: 88%;
-  height: 10em;
+  height: 12em;
   padding-bottom: 31%;
   position: relative;
-  width: 10em;
+  width: 12em;
 }
 
 .clock.simple:after {
