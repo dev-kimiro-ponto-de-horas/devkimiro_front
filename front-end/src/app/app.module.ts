@@ -16,7 +16,7 @@ import { PrincipalComponent } from './components/principal/principal.component';
     LoginComponent,
     NavbarComponent,
     RodapeComponent,
-    PrincipalComponent
+    PrincipalComponent,
   ],
   imports: [
     BrowserModule,

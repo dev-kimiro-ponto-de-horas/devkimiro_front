@@ -3,7 +3,7 @@
   top: 0;
   width: 100%;
   z-index: 5;
-  background-color:#3d3b7e;
+  background-color: rgba(255, 255, 255, 0.20);
   height: 50px;
 
   .logo {
@@ -15,7 +15,14 @@
   }
 
   &-ancora {
-    gap: 10%;
+    gap: 15%;
+  }
+
+  &-sair {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 10;
   }
 
   a {
@@ -24,12 +31,17 @@
     font-size: 1.5em;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
-    // font-weight: bold;
+    font-family: 'Anton', sans-serif;
+    font-style: bold;
+    -webkit-text-stroke: 0.3px black;
   }
 
   a:hover {
     font-size: 1.7em;
     transform: rotateY(-2px);
+    color: #3F51B5;
+    font-weight: bold;
+    -webkit-text-stroke: 0px;
   }
 }
 

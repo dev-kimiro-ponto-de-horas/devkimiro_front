@@ -2,6 +2,7 @@
   position: relative;
   width: 100%;
   height: 100%;
+  background-image: linear-gradient(to bottom, #605ee0, #7472de, #8786da, #9a9ad6, #adadd0);
 
   &-background {
     position: absolute;
@@ -10,16 +11,13 @@
   }
 
   .espaco-card {
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    background-color: rgba(7, 9, 12, 0.75);
-    border-radius: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.125);
+    background-color: rgba(255, 255, 255, 0.20);
+    border-radius: 25px;
   }
 
   .elemento {
     gap: 30%;
-    color: white;
+    color: black;
 
     .espaco-elemento {
       background-color: rgba(255, 255, 255, 0.20);
