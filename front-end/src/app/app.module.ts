@@ -12,6 +12,9 @@ import { PrincipalComponent } from './components/principal/principal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HorasComponent } from './components/horas/horas.component';
 import { SetorComponent } from './components/setor/setor.component';
+import { CargoComponent } from './components/cargo/cargo.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
+import { FuncionarioComponent } from './components/funcionario/funcionario.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,9 @@ import { SetorComponent } from './components/setor/setor.component';
     PrincipalComponent,
     HorasComponent,
     SetorComponent,
+    CargoComponent,
+    UsuarioComponent,
+    FuncionarioComponent,
   ],
   imports: [
     BrowserModule,

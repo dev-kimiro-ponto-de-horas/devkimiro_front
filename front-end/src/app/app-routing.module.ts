@@ -5,13 +5,20 @@ import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { SetorComponent } from './components/setor/setor.component';
+import { CargoComponent } from './components/cargo/cargo.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
+import { FuncionarioComponent } from './components/funcionario/funcionario.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full' , redirectTo: 'login'},
   {path: 'login', component: LoginComponent},
   {path: 'principal', component: PrincipalComponent},
   {path: 'horas', component: HorasComponent},
-  {path: 'setor', component:SetorComponent}
+  {path: 'setor', component:SetorComponent},
+  {path: 'cargo',component: CargoComponent},
+  {path: 'usuario',component: UsuarioComponent},
+  {path: 'funcionario',component: FuncionarioComponent}
+
 ];
 
 @NgModule({
