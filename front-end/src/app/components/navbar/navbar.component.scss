@@ -1,8 +1,8 @@
 .navbar{
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
-  z-index: 5;
+  z-index: 1;
   background-color: rgba(255, 255, 255, 0.20);
   height: 50px;
 
@@ -11,7 +11,7 @@
     position: absolute;
     top: 10px;
     left: 20px;
-    z-index: 10;
+    z-index: 1;
   }
 
   &-ancora {
@@ -22,7 +22,7 @@
     position: absolute;
     top: 15px;
     right: 20px;
-    z-index: 10;
+    z-index: 1;
   }
 
   a {

@@ -10,6 +10,8 @@ import { MaterialModule } from './modules/material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HorasComponent } from './components/horas/horas.component';
+import { SetorComponent } from './components/setor/setor.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     RodapeComponent,
     PrincipalComponent,
+    HorasComponent,
+    SetorComponent,
   ],
   imports: [
     BrowserModule,

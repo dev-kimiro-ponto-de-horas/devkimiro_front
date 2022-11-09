@@ -1,0 +1,75 @@
+<app-navbar></app-navbar>
+
+<div class="w-100 h-100 setor">
+
+  <main class="w-100 h-100 d-flex justify-content-center align-items-center flex-column">
+
+    <div id="espaco-card" class="w-75 h-50 mb-5 espaco-card rounded-3">
+
+      <div class="py-3 mb-3">
+        <h1 style="font-family: 'Anton', sans-serif; font-size: 3em;" class="text-center text-white">Todos os Setores:</h1>
+      </div>
+
+      <div class="card elemento-card rounded-3 d-flex justify-content-center align-items-center mx-5 my-5 px-3 py-3">
+
+        <h2>Nome Setor</h2>
+        <h3 class="mb-5">Responsável</h3>
+
+        <button mat-flat-button color="primary">Atualizar</button> <br>
+        <button mat-flat-button color="warn">Deletar</button>
+
+      </div>
+
+    </div>
+
+    <a mat-fab color="accent">
+      <mat-icon>arrow_downward</mat-icon>
+    </a>
+
+  </main>
+
+</div>
+
+<div id="formulario" class=" w-100 h-100 espaco-formulario">
+
+  <div class="w-100 h-100 d-flex justify-content-center align-items-center flex-column">
+
+    <div class="w-50 px-5 mb-5 rounded-3 py-5 campo-formulario d-flex justify-content-center align-items-center flex-column">
+
+      <div class="mb-5">
+        <h1>Criar Setor:</h1>
+      </div>
+
+      <form (ngSubmit)="submit()" [formGroup]="registroSetor">
+
+        <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
+            <mat-label>Nome do setor:</mat-label>
+              <input class="input" matInput placeholder="Digite aqui o nome do setor..." formControlName="nomeSetor">
+            <mat-icon matSuffix>work</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
+            <mat-label>Responsável do setor:</mat-label>
+              <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="responsavel">
+            <mat-icon matSuffix>person_pin</mat-icon>
+        </mat-form-field>
+
+        <div class="d-flex justify-content-center align-items-center mt-2 mb-5 w-100 px-3">
+
+          <button type="submit"  class="botao fs-6 text-white w-50" mat-raised-button color="primary"> Criar Setor! </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+    <a mat-fab color="accent">
+      <mat-icon>arrow_upward</mat-icon>
+    </a>
+
+  </div>
+
+</div>
+
+<app-rodape></app-rodape>
