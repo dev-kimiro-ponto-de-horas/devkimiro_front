@@ -13,8 +13,10 @@ export class UsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.registroUsuario = new FormGroup({
-      nomeSetor: new FormControl(),
-      responsavel: new FormControl()
+      email: new FormControl(),
+      login: new FormControl(),
+      senha: new FormControl(),
+      role: new FormControl()
     })
   }
 
@@ -22,7 +24,7 @@ export class UsuarioComponent implements OnInit {
     return this.registroUsuario.get('email')!;
   }
 
-  get responloginsavel() {
+  get login() {
     return this.registroUsuario.get('login')!;
   }
 

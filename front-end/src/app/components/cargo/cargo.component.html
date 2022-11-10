@@ -6,16 +6,15 @@
 
     <div id="espaco-card" class="w-75 h-50 mb-5 espaco-card rounded-3">
 
-      <div class="py-3 mb-3">
+      <div class= "my-2">
         <h1 style="font-family: 'Anton', sans-serif; font-size: 3em;" class="text-center text-white">Todos os Cargos:</h1>
       </div>
 
       <div class="card elemento-card rounded-3 d-flex justify-content-center align-items-center mx-5 my-5 px-3 py-3">
 
         <h2>Nome do Cargo</h2>
-        <h3 class="mb-5">Salário</h3>
+        <h3>Salário</h3>
         <h3 class="mb-5">Carga Horária</h3>
-
 
         <button mat-flat-button color="primary">Atualizar</button> <br>
         <button mat-flat-button color="warn">Deletar</button>
@@ -36,7 +35,7 @@
 
   <div class="w-100 h-100 d-flex justify-content-center align-items-center flex-column">
 
-    <div class="w-50 px-5 mb-5 rounded-3 py-5 campo-formulario d-flex justify-content-center align-items-center flex-column">
+    <div class="w-50 px-2 mb-4 rounded-3 py-3 campo-formulario d-flex justify-content-center align-items-center flex-column">
 
       <div class="mb-5">
         <h1>Criar Cargo:</h1>
@@ -46,19 +45,19 @@
 
         <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
             <mat-label>Nome do Cargo:</mat-label>
-              <input class="input" matInput placeholder="Digite aqui o nome do setor..." formControlName="nomeSetor">
+              <input class="input" matInput placeholder="Digite aqui o nome do setor..." formControlName="nomeCargo">
             <mat-icon matSuffix>work</mat-icon>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
             <mat-label>Carga horária:</mat-label>
-              <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="responsavel">
+              <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="cargaHoraria">
             <mat-icon matSuffix>person_pin</mat-icon>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
           <mat-label>Salário:</mat-label>
-            <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="responsavel">
+            <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="salario">
           <mat-icon matSuffix>attach_money</mat-icon>
       </mat-form-field>
 

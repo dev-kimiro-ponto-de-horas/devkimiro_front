@@ -14,8 +14,11 @@ export class FuncionarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.registroFuncionario = new FormGroup({
-      nomeSetor: new FormControl(),
-      responsavel: new FormControl()
+      email: new FormControl(),
+      login: new FormControl(),
+      role: new FormControl(),
+      cracha: new FormControl(),
+      senha: new FormControl()
     })
   }
 

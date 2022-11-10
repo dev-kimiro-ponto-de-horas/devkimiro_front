@@ -6,17 +6,17 @@
 
     <div id="espaco-card" class="w-75 h-50 mb-5 espaco-card rounded-3">
 
-      <div class="py-3 mb-3">
+      <div class="my-2">
         <h1 style="font-family: 'Anton', sans-serif; font-size: 3em;" class="text-center text-white">Todos os Setores:</h1>
       </div>
 
-      <div class="card elemento-card rounded-3 d-flex justify-content-center align-items-center mx-5 my-5 px-3 py-3">
+      <div class="card elemento-card rounded-3 d-flex justify-content-center align-items-center mx-5 my-5 px-3 py-2">
 
         <h2>Nome Funcionario</h2>
-        <h3 class="mb-5">Email</h3>
-        <h3 class="mb-5">Login</h3>
-        <h3 class="mb-5">Role</h3>
-        <h3 class="mb-5">Cracha</h3>
+        <h3>Email</h3>
+        <h3>Login</h3>
+        <h3>Role</h3>
+        <h3 class="mb-2">Cracha</h3>
 
         <button mat-flat-button color="primary">Atualizar</button> <br>
         <button mat-flat-button color="warn">Deletar</button>
@@ -37,47 +37,41 @@
 
   <div class="w-100 h-100 d-flex justify-content-center align-items-center flex-column">
 
-    <div class="w-50 px-5 mb-5 rounded-3 py-5 campo-formulario d-flex justify-content-center align-items-center flex-column">
+    <div class="w-50 px-2 mb-5 rounded-3 py-2 campo-formulario d-flex justify-content-center align-items-center flex-column">
 
-      <div class="mb-5">
+      <div class="mb-2">
         <h1>Criar Funcionario</h1>
       </div>
 
       <form (ngSubmit)="submit()" [formGroup]="registroFuncionario">
 
         <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
-            <mat-label>Nome do Funcionario:</mat-label>
-              <input class="input" matInput placeholder="Digite aqui o nome do setor..." formControlName="nomeSetor">
-            <mat-icon matSuffix>work</mat-icon>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
             <mat-label>Email:</mat-label>
-              <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="responsavel">
+              <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="email">
             <mat-icon matSuffix>person_pin</mat-icon>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
           <mat-label>Login:</mat-label>
-            <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="responsavel">
+            <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="login">
           <mat-icon matSuffix>person_pin</mat-icon>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
             <mat-label>Role:</mat-label>
-              <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="responsavel">
+              <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="role">
             <mat-icon matSuffix>person_pin</mat-icon>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
           <mat-label>Cracha:</mat-label>
-            <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="responsavel">
+            <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="cracha">
           <mat-icon matSuffix>person_pin</mat-icon>
          </mat-form-field>
 
         <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
           <mat-label>Senha:</mat-label>
-            <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="responsavel">
+            <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="senha">
           <mat-icon matSuffix>person_pin</mat-icon>
         </mat-form-field>
         <div class="d-flex justify-content-center align-items-center mt-2 mb-5 w-100 px-3">

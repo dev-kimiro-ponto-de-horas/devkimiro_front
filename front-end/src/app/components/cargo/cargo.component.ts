@@ -15,8 +15,9 @@ export class CargoComponent implements OnInit {
 
   ngOnInit(): void {
     this.registroCargo = new FormGroup({
-      nomeSetor: new FormControl(),
-      responsavel: new FormControl()
+      nomeCargo: new FormControl(),
+      salario: new FormControl(),
+      cargaHoraria: new FormControl()
     })
   }
 
