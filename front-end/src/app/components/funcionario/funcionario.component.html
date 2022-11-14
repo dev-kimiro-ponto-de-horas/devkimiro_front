@@ -4,7 +4,7 @@
 
   <div class="w-100 h-100 d-flex justify-content-center align-items-center flex-column">
 
-    <div id="espaco-card" class="w-75 mb-5 espaco-card rounded-3">
+    <div id="espaco-card" class="w-75 mb-3 espaco-card rounded-3">
 
       <div class="my-2">
         <h1 style="font-family: 'Anton', sans-serif; font-size: 3em;" class="text-center text-white mt-4">Todos os Funcionários:</h1>
@@ -14,9 +14,8 @@
 
         <h2>Nome Funcionario</h2>
         <h3>Email</h3>
-        <h3>Login</h3>
         <h3>Role</h3>
-        <h3 class="mb-2">Cracha</h3>
+        <h3 class="mb-4">Cracha</h3>
 
         <button mat-flat-button color="primary">Atualizar</button> <br>
         <button mat-flat-button color="warn">Deletar</button>
@@ -33,13 +32,13 @@
 
 </div>
 
-<div id="formulario" class=" w-100 h-100 espaco-formulario">
+<div class=" w-100 espaco-formulario">
 
   <div class="w-100 h-100 d-flex justify-content-center align-items-center flex-column">
 
     <div class="w-50 px-2 mb-5 rounded-3 py-2 campo-formulario d-flex justify-content-center align-items-center flex-column">
 
-      <div class="mb-2">
+      <div class="mb-2 py-2">
         <h1>Criar Funcionario</h1>
       </div>
 
@@ -74,7 +73,8 @@
             <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="senha">
           <mat-icon matSuffix>enhanced_encryption</mat-icon>
         </mat-form-field>
-        <div class="d-flex justify-content-center align-items-center mt-2 mb-5 w-100 px-3">
+
+        <div class="d-flex justify-content-center align-items-center mt-2 mb-3 w-100 px-3">
 
           <button type="submit"  class="botao fs-6 text-white w-50" mat-raised-button color="primary"> Criar Setor! </button>
 

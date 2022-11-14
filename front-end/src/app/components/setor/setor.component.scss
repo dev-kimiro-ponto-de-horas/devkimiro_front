@@ -7,7 +7,7 @@
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
     overflow: scroll;
     overflow-x: hidden;
-    height: 57%;
+    height: 65%;
 
     h2, h3 {
       margin: 0;
@@ -39,24 +39,24 @@
   }
 
   .campo-formulario {
-    background-color: rgba(255, 255, 255, 0.20);
+    background-color: rgba(255, 255, 255, 0.788);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
     ::ng-deep .mat-form-field {
 
       .mat-input-element {
-          color: white;
+          color: black;
       }
       .mat-form-field-label {
-          color: white;
+          color: black;
       }
 
       .mat-form-field-underline {
-        background-color: white;
+        background-color: black;
       }
 
       .mat-form-field-underline:hover {
-        background-color: white;
+        background-color: black;
       }
 
     }
@@ -64,26 +64,25 @@
     ::ng-deep .mat-form-field.mat-focused {
 
       .mat-form-field-label {
-          color: white;
+          color: black;
 
       }
       .mat-input-element {
-          color: white;
+          color: black;
       }
 
       .mat-form-field-required-marker {
-        color: white;
-    }
+        color: black;
+      }
 
       .mat-form-field-ripple {
-      background-color: white;
+      background-color: black;
+      }
     }
 
+    .input,
+    .input::placeholder {
+      color: black;
     }
-
-
   }
-
-
-
 }
