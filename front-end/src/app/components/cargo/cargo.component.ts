@@ -48,8 +48,17 @@ export class CargoComponent implements OnInit {
   submit(){
     if(this.registroCargo.invalid)
     return;
-
+    this.cargoService.criarCargo(this.registroCargo.value).subscribe({
+      next: (resposta) => this.cargo = resposta,
+      error: (erro) => console.log(erro)
+    });
     console.log(this.registroCargo.value);
+    location.reload();
+  }
+
+  deletarCargo(id: number){
+    this.cargoService.deletarCargo(id).subscribe();
+    location.reload();
   }
 
 }

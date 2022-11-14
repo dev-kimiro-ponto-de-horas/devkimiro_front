@@ -18,7 +18,7 @@
           <h3 class="mb-5">Cargo: {{funcionario.nomeCargo}}</h3>
 
           <button mat-flat-button color="primary">Atualizar</button> <br>
-          <button mat-flat-button color="warn">Deletar</button>
+          <button mat-flat-button color="warn" (click)="deletarFuncionario(funcionario.id)">Deletar</button>
 
         </div>
       </div>

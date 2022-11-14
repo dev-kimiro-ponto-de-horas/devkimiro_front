@@ -61,8 +61,18 @@ export class FuncionarioComponent implements OnInit {
   submit(){
     if(this.registroFuncionario.invalid)
     return;
+      this.funcionarioService.criarFuncionario(this.registroFuncionario.value).subscribe({
+        next: (resposta) => this.funcionario = resposta,
+        error: (erro) => console.log(erro)
+      });
 
     console.log(this.registroFuncionario.value);
+    location.reload();
+  }
+
+  deletarFuncionario(id: number){
+    this.funcionarioService.deletarFuncionario(id).subscribe();
+    location.reload();
   }
 
 }

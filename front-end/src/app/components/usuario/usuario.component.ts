@@ -53,8 +53,17 @@ export class UsuarioComponent implements OnInit {
   submit(){
     if(this.registroUsuario.invalid)
     return;
-
+    this.usuarioService.criarUsuario(this.registroUsuario.value).subscribe({
+      next: (resposta) => this.usuario = resposta,
+      error: (erro) => console.log(erro)
+    });
     console.log(this.registroUsuario.value);
+    location.reload();
+  }
+
+  deletarUsuario(id: number){
+    this.usuarioService.deletarUsuario(id).subscribe();
+    location.reload();
   }
 
 }

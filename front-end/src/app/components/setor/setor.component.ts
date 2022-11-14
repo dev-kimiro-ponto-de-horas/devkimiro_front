@@ -50,7 +50,7 @@ export class SetorComponent implements OnInit {
     location.reload();
   }
 
-  deletarSetor(id: number) {
+  deletarSetor(id: number){
     this.setorService.deletarSetor(id).subscribe();
     location.reload();
   }
