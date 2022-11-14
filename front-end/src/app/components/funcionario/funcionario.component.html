@@ -95,15 +95,19 @@
 
         <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
           <mat-label>Senha:</mat-label>
-            <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="senha">
-          <mat-icon matSuffix>enhanced_encryption</mat-icon>
-          <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
-            Por favor, insira uma senha válido!
-          </mat-error>
-          <mat-error *ngIf="email.hasError('required')">
-            Senha é <strong>necessário</strong>
-          </mat-error>
-        </mat-form-field>
+              <input matInput [type]="hide ? 'password' : 'text'"
+              class="input" placeholder="Digite aqui sua senha..." formControlName="senha">
+              <button mat-icon-button matSuffix (click)="hide= !hide"
+              [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon class="password">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-error *ngIf="senha.hasError('senha') && !senha.hasError('required')">
+                Por favor, insira uma senha válida!
+              </mat-error>
+              <mat-error *ngIf="senha.hasError('required')">
+                Senha é <strong>necessária</strong>
+              </mat-error>
+      </mat-form-field>
 
         <div class="d-flex justify-content-center align-items-center mt-2 mb-3 w-100 px-3">
 

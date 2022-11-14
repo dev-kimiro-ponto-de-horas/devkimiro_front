@@ -20,7 +20,7 @@ export class SetorComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.setorService.listarTodosCargos().subscribe({
+    this.setorService.listarTodosSetores().subscribe({
       next: (resposta) => this.setores = resposta,
       error: (erro) => console.log(erro),
     });

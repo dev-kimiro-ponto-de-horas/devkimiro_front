@@ -12,7 +12,7 @@ export class SetorService {
 
   private urlService : String = "http://localhost:8080/";
 
-  listarTodosCargos() : Observable<Setor[]> {
+  listarTodosSetores() : Observable<Setor[]> {
     return this.http.get<Setor[]>(this.urlService + "setor")
     .pipe(
       resposta => resposta,

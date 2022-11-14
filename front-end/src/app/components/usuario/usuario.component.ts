@@ -16,6 +16,8 @@ export class UsuarioComponent implements OnInit {
 
   public usuarios : UsuarioSistema[];
 
+  hide = true;
+
   constructor(private usuarioService : UsuarioServiceService) { }
 
   ngOnInit(): void {

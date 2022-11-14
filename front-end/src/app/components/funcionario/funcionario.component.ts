@@ -1,3 +1,4 @@
+import { HighContrastModeDetector } from '@angular/cdk/a11y';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Funcionario } from 'src/app/classes/Funcionario';
@@ -15,6 +16,9 @@ export class FuncionarioComponent implements OnInit {
   public funcionario : Funcionario;
 
   public funcionarios : Funcionario[];
+
+  hide = true;
+
 
   constructor(private funcionarioService : FuncionarioService) { }
 
