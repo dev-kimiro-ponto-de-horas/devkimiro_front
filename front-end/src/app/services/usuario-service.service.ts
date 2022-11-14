@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UsuarioSistema } from '../classes/UsuarioSistema';
-
+import { UsuarioSistema } from '../classes/usuarioSistema';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,8 +11,8 @@ export class UsuarioServiceService {
 
   private urlService : String = "http://localhost:8080/"
 
-  listarTodosUsuarios() : Observable<UsuarioSistema>{
-    return this.http.get<UsuarioSistema>(this.urlService + "usuario")
+  listarTodosUsuarios() : Observable<UsuarioSistema[]>{
+    return this.http.get<UsuarioSistema[]>(this.urlService + "usuario")
     .pipe(
       resposta => resposta,
       erro => erro

@@ -10,16 +10,17 @@
         <h1 style="font-family: 'Anton', sans-serif; font-size: 3em;" class="text-center text-white mt-4">Todos os Funcionários:</h1>
       </div>
 
-      <div class="card elemento-card rounded-3 d-flex justify-content-center align-items-center mx-5 my-5 px-3 py-3">
+      <div class="divisao-card d-flex justify-content-center align-items-center flex-wrap">
+        <div *ngFor="let funcionario of funcionarios" class="card elemento-card rounded-3 d-flex justify-content-center align-items-center mx-5 my-5 px-3 py-3">
 
-        <h2>Nome Funcionario</h2>
-        <h3>Email</h3>
-        <h3>Role</h3>
-        <h3 class="mb-4">Cracha</h3>
+          <h2>Nome: {{funcionario.nome}}</h2>
+          <h3>Email: {{funcionario.email}}</h3>
+          <h3 class="mb-5">Cargo: {{funcionario.nomeCargo}}</h3>
 
-        <button mat-flat-button color="primary">Atualizar</button> <br>
-        <button mat-flat-button color="warn">Deletar</button>
+          <button mat-flat-button color="primary">Atualizar</button> <br>
+          <button mat-flat-button color="warn">Deletar</button>
 
+        </div>
       </div>
 
     </div>
@@ -36,7 +37,7 @@
 
   <div class="w-100 h-100 d-flex justify-content-center align-items-center flex-column">
 
-    <div class="w-50 px-2 mb-5 rounded-3 py-2 campo-formulario d-flex justify-content-center align-items-center flex-column">
+    <div class="w-50 px-2 mb-4 rounded-3 py-2 campo-formulario d-flex justify-content-center align-items-center flex-column">
 
       <div class="mb-2 py-2">
         <h1>Criar Funcionario</h1>
@@ -48,30 +49,60 @@
             <mat-label>Email:</mat-label>
               <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="email">
             <mat-icon matSuffix>alternate_email</mat-icon>
+            <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+              Por favor, insira um e-mail válido!
+            </mat-error>
+            <mat-error *ngIf="email.hasError('required')">
+              E-mail é <strong>necessário</strong>
+            </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
           <mat-label>Login:</mat-label>
             <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="login">
           <mat-icon matSuffix>person_pin</mat-icon>
+          <mat-error *ngIf="login.hasError('login') && !login.hasError('required')">
+            Por favor, insira um Login válido!
+          </mat-error>
+          <mat-error *ngIf="login.hasError('required')">
+            Login é <strong>necessário</strong>
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
             <mat-label>Role:</mat-label>
               <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="role">
             <mat-icon matSuffix>group</mat-icon>
+            <mat-error *ngIf="role.hasError('role') && !role.hasError('required')">
+              Por favor, insira uma role válido!
+            </mat-error>
+            <mat-error *ngIf="role.hasError('required')">
+              Role é <strong>necessário</strong>
+            </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
           <mat-label>Cracha:</mat-label>
             <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="cracha">
           <mat-icon matSuffix>assignment_ind</mat-icon>
+          <mat-error *ngIf="cracha.hasError('cracha') && !cracha.hasError('required')">
+            Por favor, insira um cracha válido!
+          </mat-error>
+          <mat-error *ngIf="cracha.hasError('required')">
+            E-mail é <strong>necessário</strong>
+          </mat-error>
          </mat-form-field>
 
         <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
           <mat-label>Senha:</mat-label>
             <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="senha">
           <mat-icon matSuffix>enhanced_encryption</mat-icon>
+          <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+            Por favor, insira uma senha válido!
+          </mat-error>
+          <mat-error *ngIf="email.hasError('required')">
+            Senha é <strong>necessário</strong>
+          </mat-error>
         </mat-form-field>
 
         <div class="d-flex justify-content-center align-items-center mt-2 mb-3 w-100 px-3">

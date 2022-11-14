@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Funcionario } from 'src/app/classes/Funcionario';
+import { FuncionarioService } from 'src/app/services/funcionario.service';
 
 @Component({
   selector: 'app-funcionario',
@@ -10,16 +12,26 @@ export class FuncionarioComponent implements OnInit {
 
   registroFuncionario!: FormGroup;
 
-  constructor() { }
+  public funcionario : Funcionario;
+
+  public funcionarios : Funcionario[];
+
+  constructor(private funcionarioService : FuncionarioService) { }
 
   ngOnInit(): void {
+
+    this.funcionarioService.listarTodosFuncionarios().subscribe({
+      next: (resposta) => this.funcionarios = resposta,
+      error: (erro) => console.log(erro),
+    });
+
     this.registroFuncionario = new FormGroup({
-      email: new FormControl(),
-      login: new FormControl(),
-      role: new FormControl(),
-      cracha: new FormControl(),
-      senha: new FormControl()
-    })
+      email: new FormControl('', [Validators.required]),
+      login: new FormControl('', [Validators.required]),
+      role: new FormControl('', [Validators.required]),
+      cracha: new FormControl('', [Validators.required]),
+      senha: new FormControl('', [Validators.required])
+    });
   }
 
   get email() {

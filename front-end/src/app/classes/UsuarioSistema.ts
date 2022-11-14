@@ -1,9 +1,10 @@
 export class UsuarioSistema {
 
     id?: number;
-    email: string;
-    login: string;
-    senha: string;
-    role: string;
+    nome: String;
+    email: String;
+    login: String;
+    senha: String;
+    // role: String;
 
 }

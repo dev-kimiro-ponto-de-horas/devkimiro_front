@@ -1,11 +1,13 @@
 export class Funcionario {
 
     id?: number;
-    email: string;
-    login: string;
-    role: string;
-    cracha: string;
-    senha: string;
+    nome: String;
+    email: String;
+    login: String;
+    role: String;
+    cracha: String;
+    senha: String;
+    nomeCargo: String;
     //calendario: Calendario[]
 
 }

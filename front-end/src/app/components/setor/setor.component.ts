@@ -1,5 +1,7 @@
+import { Setor } from './../../classes/Setor';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { SetorService } from 'src/app/services/setor.service';
 
 @Component({
   selector: 'app-setor',
@@ -10,13 +12,23 @@ export class SetorComponent implements OnInit {
 
   registroSetor!: FormGroup;
 
-  constructor() { }
+  public setor : Setor;
+
+  public setores: Setor[];
+
+  constructor(private setorService : SetorService) { }
 
   ngOnInit(): void {
+
+    this.setorService.listarTodosCargos().subscribe({
+      next: (resposta) => this.setores = resposta,
+      error: (erro) => console.log(erro),
+    });
+
     this.registroSetor = new FormGroup({
-      nomeSetor: new FormControl(),
-      responsavel: new FormControl()
-    })
+      nomeSetor: new FormControl('', [Validators.required]),
+      responsavel: new FormControl('', [Validators.required])
+    });
   }
 
   get nomeSetor() {

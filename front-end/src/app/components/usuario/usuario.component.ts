@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UsuarioSistema } from 'src/app/classes/usuarioSistema';
+import { UsuarioServiceService } from 'src/app/services/usuario-service.service';
 
 @Component({
   selector: 'app-usuario',
@@ -7,17 +9,28 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./usuario.component.scss']
 })
 export class UsuarioComponent implements OnInit {
+
   registroUsuario!: FormGroup;
 
-  constructor() { }
+  public usuario : UsuarioSistema;
+
+  public usuarios : UsuarioSistema[];
+
+  constructor(private usuarioService : UsuarioServiceService) { }
 
   ngOnInit(): void {
+
+    this.usuarioService.listarTodosUsuarios().subscribe({
+      next: (resposta) => this.usuarios = resposta,
+      error: (erro) => console.log(erro),
+    });
+
     this.registroUsuario = new FormGroup({
-      email: new FormControl(),
-      login: new FormControl(),
-      senha: new FormControl(),
-      role: new FormControl()
-    })
+      email: new FormControl('', [Validators.required]),
+      login: new FormControl('', [Validators.required]),
+      senha: new FormControl('', [Validators.required]),
+      role: new FormControl('', [Validators.required])
+    });
   }
 
   get email() {

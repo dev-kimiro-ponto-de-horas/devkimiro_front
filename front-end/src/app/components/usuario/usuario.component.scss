@@ -15,11 +15,17 @@
       padding: 0;
     }
 
-    .elemento-card {
-      width: 18em;
-      height: 18em;
-      border-left: .5em solid #605ee0;
-      box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    .divisao-card {
+
+      max-width: 85%;
+      margin: 0 auto;
+
+      .elemento-card {
+        width: 30em;
+        height: 25em;
+        border-left: .5em solid #605ee0;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+      }
     }
   }
 }

@@ -10,7 +10,7 @@ export class FuncionarioService {
 
   constructor(private http: HttpClient) { }
 
-  private urlService : String = "http://localhost:8080"
+  private urlService : String = "http://localhost:8080/"
 
   listarTodosFuncionarios() : Observable<Funcionario[]>{
     return this.http.get<Funcionario[]>(this.urlService + "funcionario")

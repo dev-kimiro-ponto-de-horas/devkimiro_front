@@ -1,5 +1,7 @@
+import { Cargo } from './../../classes/Cargo';
+import { CargoService } from './../../services/cargo.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 @Component({
@@ -11,14 +13,24 @@ export class CargoComponent implements OnInit {
 
   registroCargo!: FormGroup;
 
-  constructor() { }
+  public cargo : Cargo;
+
+  public cargos : Cargo[];
+
+  constructor(private cargoService : CargoService) { }
 
   ngOnInit(): void {
+
+    this.cargoService.listarTodosCargos().subscribe({
+      next: (resposta) => this.cargos = resposta,
+      error: (erro) => console.log(erro),
+    });
+
     this.registroCargo = new FormGroup({
-      nomeCargo: new FormControl(),
-      salario: new FormControl(),
-      cargaHoraria: new FormControl()
-    })
+      nomeCargo: new FormControl('', [Validators.required]),
+      salario: new FormControl('', [Validators.required]),
+      cargaHoraria: new FormControl('', [Validators.required])
+    });
   }
 
   get nomeCargo() {
