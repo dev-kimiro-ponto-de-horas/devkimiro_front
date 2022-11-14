@@ -41,9 +41,17 @@ export class SetorComponent implements OnInit {
 
   submit(){
     if(this.registroSetor.invalid)
-    return;
-
+      return;
+      this.setorService.criarSetor(this.registroSetor.value).subscribe({
+        next: (resposta) => this.setor = resposta,
+        error: (erro) => console.log(erro)
+      });
     console.log(this.registroSetor.value);
+    location.reload();
   }
 
+  deletarSetor(id: number) {
+    this.setorService.deletarSetor(id).subscribe();
+    location.reload();
+  }
 }
