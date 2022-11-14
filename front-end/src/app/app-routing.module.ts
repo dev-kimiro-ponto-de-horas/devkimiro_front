@@ -8,6 +8,7 @@ import { SetorComponent } from './components/setor/setor.component';
 import { CargoComponent } from './components/cargo/cargo.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import { FuncionarioComponent } from './components/funcionario/funcionario.component';
+import { EquipeComponent } from './components/equipe/equipe.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full' , redirectTo: 'login'},
@@ -17,8 +18,8 @@ const routes: Routes = [
   {path: 'setor', component:SetorComponent},
   {path: 'cargo',component: CargoComponent},
   {path: 'usuario',component: UsuarioComponent},
-  {path: 'funcionario',component: FuncionarioComponent}
-
+  {path: 'funcionario',component: FuncionarioComponent},
+  {path: 'equipe', component: EquipeComponent},
 ];
 
 @NgModule({

@@ -21,6 +21,7 @@ import { SetorComponent } from './components/setor/setor.component';
 import { CargoComponent } from './components/cargo/cargo.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import { FuncionarioComponent } from './components/funcionario/funcionario.component';
+import { EquipeComponent } from './components/equipe/equipe.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { FuncionarioComponent } from './components/funcionario/funcionario.compo
     CargoComponent,
     UsuarioComponent,
     FuncionarioComponent,
+    EquipeComponent,
   ],
   imports: [
     BrowserModule,
