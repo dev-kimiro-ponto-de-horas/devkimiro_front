@@ -1,3 +1,4 @@
+import { Setor } from './../../classes/Setor';
 import { Cargo } from './../../classes/Cargo';
 import { CargoService } from './../../services/cargo.service';
 import { Component, OnInit } from '@angular/core';
@@ -47,7 +48,8 @@ export class CargoComponent implements OnInit {
 
   submit(){
     if(this.registroCargo.invalid)
-    return;
+      return;
+
     this.cargoService.criarCargo(this.registroCargo.value).subscribe({
       next: (resposta) => this.cargo = resposta,
       error: (erro) => console.log(erro)
@@ -60,5 +62,4 @@ export class CargoComponent implements OnInit {
     this.cargoService.deletarCargo(id).subscribe();
     location.reload();
   }
-
 }

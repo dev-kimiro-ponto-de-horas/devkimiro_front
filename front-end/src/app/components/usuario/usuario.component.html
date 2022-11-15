@@ -14,9 +14,7 @@
         <div *ngFor="let usuario of usuarios" class="card elemento-card rounded-3 d-flex justify-content-center align-items-center mx-5 my-5 px-3 py-3">
 
           <h2>Nome: {{usuario.nome}}</h2>
-          <h3>Email: {{usuario.email}}</h3>
-          <h3>Login: {{usuario.login}}</h3>
-          <h3 class="mb-5">Role</h3>
+          <h3 class="mb-5">Email: {{usuario.email}}</h3>
 
           <button mat-flat-button color="primary">Atualizar</button> <br>
           <button mat-flat-button color="warn" (click)="deletarUsuario(usuario.id)">Deletar</button>
@@ -45,6 +43,18 @@
       </div>
 
       <form (ngSubmit)="submit()" [formGroup]="registroUsuario">
+
+      <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
+          <mat-label>Nome:</mat-label>
+            <input class="input" matInput placeholder="Digite aqui o nome..." formControlName="nome">
+          <mat-icon matSuffix>alternate_nome</mat-icon>
+          <mat-error *ngIf="nome.hasError('nome') && !nome.hasError('required')">
+            Por favor, insira nome válido!
+          </mat-error>
+          <mat-error *ngIf="nome.hasError('required')">
+            Nome <strong>necessário</strong>
+          </mat-error>
+      </mat-form-field>
 
         <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
             <mat-label>Email:</mat-label>
@@ -86,7 +96,7 @@
               </mat-error>
         </mat-form-field>
 
-      <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
+      <!-- <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
         <mat-label>Role:</mat-label>
           <input class="input" matInput placeholder="Digite aqui a role..." formControlName="role">
         <mat-icon matSuffix>group</mat-icon>
@@ -96,11 +106,11 @@
         <mat-error *ngIf="role.hasError('required')">
           Role é <strong>necessário</strong>
         </mat-error>
-    </mat-form-field>
+    </mat-form-field> -->
 
         <div class="d-flex justify-content-center align-items-center mt-2 pb-2 mb-2 w-100 px-3">
 
-          <button type="submit"  class="botao fs-6 text-white w-50" mat-raised-button color="primary"> Criar Usuário! </button>
+          <button type="submit" (click)="submit()" class="botao fs-6 text-white w-50" mat-raised-button color="primary"> Criar Usuário! </button>
 
         </div>
 

@@ -15,6 +15,7 @@
 
           <h2>Nome: {{funcionario.nome}}</h2>
           <h3>Email: {{funcionario.email}}</h3>
+          <h3>Setor: {{funcionario.nomeSetor}}</h3>
           <h3 class="mb-5">Cargo: {{funcionario.nomeCargo}}</h3>
 
           <button mat-flat-button color="primary">Atualizar</button> <br>
@@ -58,27 +59,37 @@
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
-          <mat-label>Login:</mat-label>
-            <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="login">
+          <mat-label>Nome:</mat-label>
+            <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="nome">
           <mat-icon matSuffix>person_pin</mat-icon>
-          <mat-error *ngIf="login.hasError('login') && !login.hasError('required')">
-            Por favor, insira um Login válido!
+          <mat-error *ngIf="nome.hasError('nome') && !nome.hasError('required')">
+            Por favor, insira um nome válido!
           </mat-error>
-          <mat-error *ngIf="login.hasError('required')">
-            Login é <strong>necessário</strong>
+          <mat-error *ngIf="nome.hasError('required')">
+            Nome é <strong>necessário</strong>
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
-            <mat-label>Role:</mat-label>
-              <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="role">
-            <mat-icon matSuffix>group</mat-icon>
-            <mat-error *ngIf="role.hasError('role') && !role.hasError('required')">
-              Por favor, insira uma role válido!
-            </mat-error>
-            <mat-error *ngIf="role.hasError('required')">
-              Role é <strong>necessário</strong>
-            </mat-error>
+          <mat-label>Selecione o nome do Setor</mat-label>
+          <mat-select formControlName="nomeSetor">
+            <mat-option value="{{setor.nomeSetor}}" *ngFor="let setor of setores">{{setor.nomeSetor}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="nomeSetor.hasError('required')">Você precisa selecionar um setor!</mat-error>
+          <mat-error *ngIf="nomeSetor.hasError('pattern') && !nomeSetor.hasError('required')">
+            Setor Inválido!
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
+          <mat-label>Selecione o nome do Cargo</mat-label>
+          <mat-select formControlName="nomeCargo">
+            <mat-option value="{{cargo.nomeCargo}}" *ngFor="let cargo of cargos">{{cargo.nomeCargo}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="nomeCargo.hasError('required')">Você precisa selecionar um cargo!</mat-error>
+          <mat-error *ngIf="nomeCargo.hasError('pattern') && !nomeCargo.hasError('required')">
+            Cargo Inválido!
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="w-100 px-5 mt-2">

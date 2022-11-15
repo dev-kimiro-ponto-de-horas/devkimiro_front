@@ -28,11 +28,15 @@ export class UsuarioComponent implements OnInit {
     });
 
     this.registroUsuario = new FormGroup({
+      nome: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
       login: new FormControl('', [Validators.required]),
       senha: new FormControl('', [Validators.required]),
-      role: new FormControl('', [Validators.required])
     });
+  }
+
+  get nome() {
+    return this.registroUsuario.get('nome');
   }
 
   get email() {
@@ -47,12 +51,9 @@ export class UsuarioComponent implements OnInit {
     return this.registroUsuario.get('senha')!;
   }
 
-  get role() {
-    return this.registroUsuario.get('role')!;
-  }
   submit(){
     if(this.registroUsuario.invalid)
-    return;
+      return;
     this.usuarioService.criarUsuario(this.registroUsuario.value).subscribe({
       next: (resposta) => this.usuario = resposta,
       error: (erro) => console.log(erro)
@@ -62,6 +63,7 @@ export class UsuarioComponent implements OnInit {
   }
 
   deletarUsuario(id: number){
+    console.log("ID que está sendo enviado: " + id);
     this.usuarioService.deletarUsuario(id).subscribe();
     location.reload();
   }

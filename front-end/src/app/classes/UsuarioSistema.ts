@@ -6,5 +6,4 @@ export class UsuarioSistema {
     login: String;
     senha: String;
     // role: String;
-
 }
