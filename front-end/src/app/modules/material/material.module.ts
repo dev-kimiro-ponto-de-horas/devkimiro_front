@@ -5,6 +5,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -12,7 +13,8 @@ const MaterialComponents = [
   MatIconModule,
   MatTooltipModule,
   MatTableModule,
-  MatSelectModule
+  MatSelectModule,
+  MatDialogModule
 ]
 
 @NgModule({

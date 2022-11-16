@@ -12,7 +12,9 @@ export class SetorComponent implements OnInit {
 
   registroSetor!: FormGroup;
 
-  public setor : Setor;
+  registroSetorAtualizar!: FormGroup;
+
+  public setor: Setor;
 
   public setores: Setor[];
 
@@ -29,6 +31,12 @@ export class SetorComponent implements OnInit {
       nomeSetor: new FormControl('', [Validators.required]),
       responsavel: new FormControl('', [Validators.required])
     });
+
+    this.registroSetorAtualizar = new FormGroup({
+      id: new FormControl(''),
+      nomeSetor: new FormControl('', [Validators.required]),
+      responsavel: new FormControl('', [Validators.required])
+    })
   }
 
   get nomeSetor() {
@@ -39,12 +47,24 @@ export class SetorComponent implements OnInit {
     return this.registroSetor.get('responsavel')!;
   }
 
+  get id() {
+    return this.registroSetorAtualizar.get('id')!;
+  }
+
+  get nomeSetorAtualizar() {
+    return this.registroSetorAtualizar.get('nomeSetor')!;
+  }
+
+  get responsavelAtualizar() {
+    return this.registroSetorAtualizar.get('responsavel')!;
+  }
+
   submit(){
     if(this.registroSetor.invalid)
       return;
       this.setorService.criarSetor(this.registroSetor.value).subscribe({
         next: (resposta) => this.setor = resposta,
-        error: (erro) => console.log(erro)
+        error: (erro) => console.log(erro),
       });
     console.log(this.registroSetor.value);
     location.reload();
@@ -53,5 +73,16 @@ export class SetorComponent implements OnInit {
   deletarSetor(id: number){
     this.setorService.deletarSetor(id).subscribe();
     location.reload();
+  }
+
+  submitUpdate(){
+    if(this.registroSetorAtualizar.invalid)
+      return;
+      this.setorService.atualizarSetor(this.registroSetorAtualizar.value).subscribe({
+        next: (resposta) => this.setor = resposta,
+        error: (erro) => console.log(erro),
+      });
+      console.log(this.registroSetorAtualizar.value);
+      location.reload();
   }
 }

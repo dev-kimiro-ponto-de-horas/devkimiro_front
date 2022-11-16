@@ -28,16 +28,16 @@ export class SetorService {
     )
   }
 
-  criarSetor(Setor: Setor) : Observable<Setor> {
-    return this.http.post<Setor>(this.urlService + "setor", Setor)
+  criarSetor(setor: Setor) : Observable<Setor> {
+    return this.http.post<Setor>(this.urlService + "setor", setor)
     .pipe(
       resposta => resposta,
       erro => erro
     )
   }
 
-  atualizarSetor(Setor: Setor, id: number) : Observable<Setor> {
-    return this.http.put<Setor>(this.urlService + "setor/" + id, Setor)
+  atualizarSetor(setor: Setor) : Observable<Setor> {
+    return this.http.put<Setor>(this.urlService + "setor/" + setor.id, setor)
     .pipe(
       resposta => resposta,
       erro => erro
