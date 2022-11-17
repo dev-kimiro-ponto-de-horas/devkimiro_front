@@ -16,8 +16,6 @@
           <h2>Cargo: {{cargo.nomeCargo}}</h2>
           <h3>Carga Horária: {{cargo.cargaHoraria}}</h3>
           <h3 class="mb-5" >Salário: {{cargo.salario | currency:'BRL'}}</h3>
-
-          <button mat-flat-button color="primary">Atualizar</button> <br>
           <button mat-flat-button color="warn" (click)="deletarCargo(cargo.id)">Deletar</button>
 
         </div>
@@ -33,11 +31,12 @@
 
 </div>
 
-<div id="formulario" class=" w-100 h-100 espaco-formulario">
+<div id="formulario" class=" w-100 espaco-formulario">
 
-  <div class="w-100 h-100 d-flex justify-content-center align-items-center flex-column">
+  <div class="w-100 d-flex justify-content-center align-items-center flex-column">
 
-    <div class="w-50 px-3 mb-4 rounded-3 pt-3 campo-formulario d-flex justify-content-center align-items-center flex-column">
+
+    <div class="w-50 criar-cargo px-3 mb-5 rounded-3 pt-3 campo-formulario d-flex justify-content-center align-items-center flex-column">
 
       <div class="mb-4 py-2">
         <h1>Criar Cargo:</h1>
@@ -77,15 +76,68 @@
 
         <div class="d-flex justify-content-center align-items-center mt-2 mb-5 w-100 px-3">
 
-          <button type="submit"  class="botao fs-6 text-white w-50" mat-raised-button color="primary"> Criar Cargo! </button>
+          <button type="submit" class="botao fs-6 text-white w-50" mat-raised-button color="primary"> Criar Cargo! </button>
 
         </div>
 
       </form>
 
     </div>
+    <div class="w-50 px-3 mb-5 rounded-3 pt-3 campo-formulario d-flex justify-content-center align-items-center flex-column">
 
-    <a mat-fab color="accent">
+      <div class="mb-4 py-2">
+        <h1>Atualizar Cargo:</h1>
+      </div>
+
+      <form (ngSubmit)="submitUpdate()" [formGroup]="registroCargoAtualizar">
+
+        <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
+          <mat-label>Selecione o nome do Cargo</mat-label>
+          <mat-select formControlName="id">
+            <mat-option value="{{cargo.id}}" *ngFor="let cargo of cargos">{{cargo.nomeCargo}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
+            <mat-label>Nome Cargo:</mat-label>
+              <input class="input" matInput placeholder="Digite aqui o nome do cargo..." formControlName="nomeCargo">
+            <mat-icon matSuffix>work</mat-icon>
+            <mat-error *ngIf="nomeCargo.hasError('nomeCargo') && !nomeCargo.hasError('required')">
+              Por favor, insira um nome de setor válido!
+            </mat-error>
+            <mat-error *ngIf="nomeCargo.hasError('required')">
+              O nome do cargo é <strong>necessário</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
+            <mat-label>Carga horária:</mat-label>
+              <input class="input" type="text" matInput placeholder="Digite aqui a carga horária..." formControlName="cargaHoraria">
+            <mat-icon matSuffix>access_time</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
+          <mat-label>Salário:</mat-label>
+            <input class="input" matInput placeholder="Digite aqui o salário..." formControlName="salario">
+          <mat-icon matSuffix>attach_money</mat-icon>
+          <mat-error *ngIf="salario.hasError('salario') && !salario.hasError('required')">
+            Por favor, insira um salário válido!
+          </mat-error>
+          <mat-error *ngIf="salario.hasError('required')">
+            Salário é <strong>necessário</strong>
+          </mat-error>
+      </mat-form-field>
+
+        <div class="d-flex justify-content-center align-items-center mt-2 mb-5 w-100 px-3">
+
+          <button type="submit" class="botao fs-6 text-white w-50" mat-raised-button color="primary"> Atualizar Cargo! </button>
+
+        </div>
+
+      </form>
+
+    </div>
+    <a class="mb-5 arrown-down" mat-fab color="accent">
       <mat-icon>arrow_upward</mat-icon>
     </a>
 

@@ -14,6 +14,8 @@ export class CargoComponent implements OnInit {
 
   registroCargo!: FormGroup;
 
+  registroCargoAtualizar!: FormGroup;
+
   public cargo : Cargo;
 
   public cargos : Cargo[];
@@ -32,6 +34,13 @@ export class CargoComponent implements OnInit {
       salario: new FormControl('', [Validators.required]),
       cargaHoraria: new FormControl('', [Validators.required])
     });
+
+    this.registroCargoAtualizar = new FormGroup({
+      id: new FormControl(''),
+      nomeCargo: new FormControl('', [Validators.required]),
+      salario: new FormControl('', [Validators.required]),
+      cargaHoraria: new FormControl('', [Validators.required]),
+    })
   }
 
   get nomeCargo() {
@@ -43,13 +52,29 @@ export class CargoComponent implements OnInit {
   }
 
   get cargaHoraria(){
-    return this.cargaHoraria.get('cargaHoraria');
+    return this.cargaHoraria.get('cargaHoraria')!;
+  }
+
+  get id(){
+    return this.registroCargoAtualizar.get('id')!;
+  }
+
+  get nomeCargoAtualizar() {
+    return this.registroCargoAtualizar.get('nomeCargo')!;
+  }
+
+  get salarioAtualizar() {
+    return this.registroCargoAtualizar.get('salario')!;
+  }
+
+  get cargaHorariaAtualizar(){
+    return this.registroCargoAtualizar.get('cargaHorario')!;
   }
 
   submit(){
-    if(this.registroCargo.invalid)
+    if(this.registroCargo.invalid){
       return;
-
+    }
     this.cargoService.criarCargo(this.registroCargo.value).subscribe({
       next: (resposta) => this.cargo = resposta,
       error: (erro) => console.log(erro)
@@ -60,6 +85,18 @@ export class CargoComponent implements OnInit {
 
   deletarCargo(id: number){
     this.cargoService.deletarCargo(id).subscribe();
+    location.reload();
+  }
+
+  submitUpdate(){
+    if(this.registroCargoAtualizar.invalid){
+      return;
+    }
+    this.cargoService.atualizarCargo(this.registroCargoAtualizar.value).subscribe({
+      next: (resposta) => this.cargo = resposta,
+      error: (erro) => console.log(erro),
+    });
+    console.log(this.registroCargoAtualizar.value);
     location.reload();
   }
 }

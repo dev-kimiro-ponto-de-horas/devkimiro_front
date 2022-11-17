@@ -18,6 +18,7 @@ export class SetorComponent implements OnInit {
 
   public setores: Setor[];
 
+
   constructor(private setorService : SetorService) { }
 
   ngOnInit(): void {
@@ -60,8 +61,9 @@ export class SetorComponent implements OnInit {
   }
 
   submit(){
-    if(this.registroSetor.invalid)
+    if(this.registroSetor.invalid){
       return;
+    }
       this.setorService.criarSetor(this.registroSetor.value).subscribe({
         next: (resposta) => this.setor = resposta,
         error: (erro) => console.log(erro),
@@ -76,8 +78,9 @@ export class SetorComponent implements OnInit {
   }
 
   submitUpdate(){
-    if(this.registroSetorAtualizar.invalid)
+    if(this.registroSetorAtualizar.invalid){
       return;
+    }
       this.setorService.atualizarSetor(this.registroSetorAtualizar.value).subscribe({
         next: (resposta) => this.setor = resposta,
         error: (erro) => console.log(erro),

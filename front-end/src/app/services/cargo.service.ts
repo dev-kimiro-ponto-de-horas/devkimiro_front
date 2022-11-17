@@ -44,8 +44,8 @@ export class CargoService {
     )
   }
 
-  atualizarCargo(cargo: Cargo, id: number) : Observable<Cargo> {
-    return this.http.put<Cargo>(this.urlService + "cargo/" + id, cargo)
+  atualizarCargo(cargo: Cargo) : Observable<Cargo> {
+    return this.http.put<Cargo>(this.urlService + "cargo/" + cargo.id, cargo)
     .pipe(
       resposta => resposta,
       erro => erro
