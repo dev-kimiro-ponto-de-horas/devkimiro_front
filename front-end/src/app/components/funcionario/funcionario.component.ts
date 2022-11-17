@@ -17,6 +17,8 @@ export class FuncionarioComponent implements OnInit {
 
   registroFuncionario!: FormGroup;
 
+  registroFuncionarioAtualizar!: FormGroup;
+
   public funcionario : Funcionario;
 
   public funcionarios : Funcionario[];
@@ -55,6 +57,15 @@ export class FuncionarioComponent implements OnInit {
       cracha: new FormControl('', [Validators.required]),
       senha: new FormControl('', [Validators.required])
     });
+
+    this.registroFuncionarioAtualizar = new FormGroup({
+      nomeCargo: new FormControl('', [Validators.required]),
+      nomeSetor: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required]),
+      nome: new FormControl('', [Validators.required]),
+      cracha: new FormControl(''),
+      senha: new FormControl('', [Validators.required])
+     })
   }
 
   get nomeCargo() {
@@ -81,14 +92,38 @@ export class FuncionarioComponent implements OnInit {
     return this.registroFuncionario.get('senha')!;
   }
 
+  get nomeCargoAtualizar() {
+    return this.registroFuncionarioAtualizar.get('nomeCargo')!;
+  }
+
+  get nomeSetorAtualizar() {
+    return this.registroFuncionarioAtualizar.get('nomeSetor')!;
+  }
+
+  get emailAtualizar() {
+    return this.registroFuncionarioAtualizar.get('email')!;
+  }
+
+  get nomeAtualizar() {
+    return this.registroFuncionarioAtualizar.get('nome')!;
+  }
+
+  get crachaAtualizar() {
+    return this.registroFuncionarioAtualizar.get('cracha')!;
+  }
+
+  get senhaAtualizar() {
+    return this.registroFuncionarioAtualizar.get('senha')!;
+  }
+
   submit(){
-    if(this.registroFuncionario.invalid)
-    return;
+    if(this.registroFuncionario.invalid){
+      return;
+    }
       this.funcionarioService.criarFuncionario(this.registroFuncionario.value).subscribe({
         next: (resposta) => this.funcionario = resposta,
         error: (erro) => console.log(erro)
       });
-
     console.log(this.registroFuncionario.value);
     location.reload();
   }
@@ -98,4 +133,15 @@ export class FuncionarioComponent implements OnInit {
     location.reload();
   }
 
+  submitUpdate() {
+    if(this.registroFuncionarioAtualizar.invalid){
+      return;
+    }
+      this.funcionarioService.atualizarFuncionario(this.registroFuncionarioAtualizar.value).subscribe({
+        next: (resposta) => this.funcionario = resposta,
+        error: (erro) => console.log(erro),
+      });
+      console.log(this.registroFuncionarioAtualizar.value);
+      location.reload();
+  }
 }

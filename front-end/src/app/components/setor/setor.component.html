@@ -86,7 +86,7 @@
         <form (ngSubmit)="submitUpdate()" [formGroup]="registroSetorAtualizar">
 
           <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
-            <mat-label>Selecione o nome do Setor</mat-label>
+            <mat-label>Selecione o Setor:</mat-label>
             <mat-select formControlName="id">
               <mat-option value="{{setor.id}}" *ngFor="let setor of setores">{{setor.nomeSetor}}</mat-option>
             </mat-select>

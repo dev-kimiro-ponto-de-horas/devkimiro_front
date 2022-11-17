@@ -51,8 +51,8 @@ export class UsuarioServiceService {
     )
   }
 
-  atualizarusuario(usuario: UsuarioSistema, login: string) : Observable<UsuarioSistema>{
-    return this.http.put<UsuarioSistema>(this.urlService + "usuario/" + login, usuario)
+  atualizarusuario(usuario: UsuarioSistema) : Observable<UsuarioSistema>{
+    return this.http.put<UsuarioSistema>(this.urlService + "usuario/" + usuario.login, usuario)
     .pipe(
       resposta => resposta,
       erro => erro

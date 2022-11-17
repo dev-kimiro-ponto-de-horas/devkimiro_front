@@ -16,7 +16,6 @@
           <h2>Nome: {{usuario.nome}}</h2>
           <h3 class="mb-5">Email: {{usuario.email}}</h3>
 
-          <button mat-flat-button color="primary">Atualizar</button> <br>
           <button mat-flat-button color="warn" (click)="deletarUsuario(usuario.id)">Deletar</button>
 
         </div>
@@ -32,17 +31,17 @@
 
 </div>
 
-<div id="formulario" class=" w-100 h-100 espaco-formulario">
+<div id="formulario" class=" w-100 espaco-formulario">
 
-  <div class="w-100 h-100 d-flex justify-content-center align-items-center flex-column">
+  <div class="w-100 d-flex justify-content-center align-items-center flex-column">
 
-    <div class="w-50 px-3 mb-3 rounded-3 pt-2 campo-formulario d-flex justify-content-center align-items-center flex-column">
+    <div class="w-50 criar-usuario px-3 mb-5 rounded-3 pt-2 campo-formulario d-flex justify-content-center align-items-center flex-column">
 
       <div class="mb-1 py-2">
         <h1>Criar Usuário:</h1>
       </div>
 
-      <form (ngSubmit)="submit()" [formGroup]="registroUsuario">
+      <form [formGroup]="registroUsuario">
 
       <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
           <mat-label>Nome:</mat-label>
@@ -84,6 +83,59 @@
           <mat-label>Senha:</mat-label>
               <input matInput [type]="hide ? 'password' : 'text'"
               class="input" placeholder="Digite aqui sua senha..." formControlName="senha">
+              <button type="text" mat-icon-button matSuffix (click)="hide= !hide"
+              [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon class="password">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-error *ngIf="senha.hasError('senha') && !senha.hasError('required')">
+                Por favor, insira uma senha válida!
+              </mat-error>
+              <mat-error *ngIf="senha.hasError('required')">
+                Senha é <strong>necessária</strong>
+              </mat-error>
+        </mat-form-field>
+
+      <!-- <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
+        <mat-label>Role:</mat-label>
+          <input class="input" matInput placeholder="Digite aqui a role..." formControlName="role">
+        <mat-icon matSuffix>group</mat-icon>
+        <mat-error *ngIf="role.hasError('role') && !role.hasError('required')">
+          Por favor, insira uma role válido!
+        </mat-error>
+        <mat-error *ngIf="role.hasError('required')">
+          Role é <strong>necessário</strong>
+        </mat-error>
+    </mat-form-field> -->
+
+        <div class="d-flex justify-content-center align-items-center mt-2 pb-2 mb-2 w-100 px-3">
+
+          <button (click)="submit()" class="botao fs-6 text-white w-50" mat-raised-button color="primary"> Criar Usuário! </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+    <div class="w-50 px-3 mb-3 rounded-3 pt-2 campo-formulario d-flex justify-content-center align-items-center flex-column">
+
+      <div class="mb-1 py-2">
+        <h1>Atualizar Usuário:</h1>
+      </div>
+
+      <form  [formGroup]="registroUsuarioAtualizar">
+
+        <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
+          <mat-label>Selecione o nome do Cargo</mat-label>
+          <mat-select formControlName="login">
+            <mat-option value="{{usuario.login}}" *ngFor="let usuario of usuarios">{{usuario.nome}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
+          <mat-label>Senha:</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'"
+              class="input" placeholder="Digite aqui sua senha..." formControlName="senha">
               <button mat-icon-button matSuffix (click)="hide= !hide"
               [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                   <mat-icon class="password">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -110,7 +162,7 @@
 
         <div class="d-flex justify-content-center align-items-center mt-2 pb-2 mb-2 w-100 px-3">
 
-          <button type="submit" (click)="submit()" class="botao fs-6 text-white w-50" mat-raised-button color="primary"> Criar Usuário! </button>
+          <button (click)="submitUpdate()" type="submit" class="botao fs-6 text-white w-50" mat-raised-button color="primary"> Atualizar Usuário! </button>
 
         </div>
 
@@ -118,7 +170,7 @@
 
     </div>
 
-    <a mat-fab color="accent">
+    <a class="mb-5 arrown-down" mat-fab color="accent">
       <mat-icon>arrow_upward</mat-icon>
     </a>
 

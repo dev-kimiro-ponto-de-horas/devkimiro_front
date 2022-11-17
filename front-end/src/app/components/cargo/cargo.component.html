@@ -92,7 +92,7 @@
       <form (ngSubmit)="submitUpdate()" [formGroup]="registroCargoAtualizar">
 
         <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
-          <mat-label>Selecione o nome do Cargo</mat-label>
+          <mat-label>Selecione o Cargo:</mat-label>
           <mat-select formControlName="id">
             <mat-option value="{{cargo.id}}" *ngFor="let cargo of cargos">{{cargo.nomeCargo}}</mat-option>
           </mat-select>

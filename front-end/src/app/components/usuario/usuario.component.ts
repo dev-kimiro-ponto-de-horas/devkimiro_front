@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, Form } from '@angular/forms';
 import { UsuarioSistema } from 'src/app/classes/usuarioSistema';
 import { UsuarioServiceService } from 'src/app/services/usuario-service.service';
 
@@ -11,6 +11,8 @@ import { UsuarioServiceService } from 'src/app/services/usuario-service.service'
 export class UsuarioComponent implements OnInit {
 
   registroUsuario!: FormGroup;
+
+  registroUsuarioAtualizar!: FormGroup;
 
   public usuario : UsuarioSistema;
 
@@ -33,6 +35,11 @@ export class UsuarioComponent implements OnInit {
       login: new FormControl('', [Validators.required]),
       senha: new FormControl('', [Validators.required]),
     });
+
+    this.registroUsuarioAtualizar = new FormGroup({
+      login: new FormControl(''),
+      senha: new FormControl('', [Validators.required])
+    })
   }
 
   get nome() {
@@ -49,6 +56,14 @@ export class UsuarioComponent implements OnInit {
 
   get senha() {
     return this.registroUsuario.get('senha')!;
+  }
+
+  get loginAtualizar() {
+    return this.registroUsuarioAtualizar.get('login')!;
+  }
+
+  get senhaAtualizar() {
+    return this.registroUsuarioAtualizar.get('senha')!;
   }
 
   submit(){
@@ -68,4 +83,15 @@ export class UsuarioComponent implements OnInit {
     location.reload();
   }
 
+  submitUpdate(){
+    if(this.registroUsuarioAtualizar.invalid){
+      return;
+    }
+    // this.usuarioService.atualizarusuario(this.registroUsuarioAtualizar.value).subscribe({
+    //   next: (resposta) => this.usuario = resposta,
+    //   error: (erro) => console.log(erro),
+    // });
+    console.log(this.registroUsuarioAtualizar.value);
+    // location.reload();
+  }
 }

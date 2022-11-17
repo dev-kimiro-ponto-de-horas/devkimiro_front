@@ -52,8 +52,8 @@ export class FuncionarioService {
     )
   }
 
-  atualizarFuncionario(funcionario: Funcionario, cracha: string ){
-    return this.http.put<Funcionario>(this.urlService + "funcionario/" + cracha, funcionario)
+  atualizarFuncionario(funcionario: Funcionario){
+    return this.http.put<Funcionario>(this.urlService + "funcionario/admin/" + funcionario.cracha, funcionario)
     .pipe(
       resposta => resposta,
       erro => erro
