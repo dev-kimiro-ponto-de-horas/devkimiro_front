@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Login } from 'src/app/classes/Login';
+import { LoginService } from 'src/app/services/login.service';
+
 
 @Component({
   selector: 'app-login',
@@ -12,18 +15,20 @@ export class LoginComponent implements OnInit {
 
   registroLogin!: FormGroup;
 
-  constructor() { }
+  public login: Login;
+
+  constructor( private loginService : LoginService) { }
 
   ngOnInit(): void {
 
     this.registroLogin = new FormGroup({
-      email: new FormControl('', [Validators.required]),
+      username: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
     })
   }
 
-  get email() {
-    return this.registroLogin.get('email')!;
+  get username() {
+    return this.registroLogin.get('username')!;
   }
 
   get password() {
@@ -31,12 +36,15 @@ export class LoginComponent implements OnInit {
   }
 
   submit(){
-    if(this.registroLogin.invalid)
+    if(this.registroLogin.invalid){
       return;
-
+  }
+    this.loginService.criarLogin(this.registroLogin.value).subscribe({
+    next: (resposta) => this.login = resposta,
+    error: (erro) => console.log(erro),
+    });
       console.log(this.registroLogin.value);
 
-      //método para acessar
   }
 
 }

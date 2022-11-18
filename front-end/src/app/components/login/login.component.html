@@ -16,14 +16,14 @@
         <form (ngSubmit)="submit()" [formGroup]="registroLogin">
 
         <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
-            <mat-label>Email:</mat-label>
-              <input class="input" matInput placeholder="Digite aqui seu e-mail..." formControlName="email">
-            <mat-icon matSuffix class="email">mail</mat-icon>
-            <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
-              Por favor, insira um e-mail válido!
+            <mat-label>Username:</mat-label>
+              <input class="input" matInput placeholder="Digite aqui seu e-mail..." formControlName="username">
+            <mat-icon matSuffix class="username">username</mat-icon>
+            <mat-error *ngIf="username.hasError('email') && !username.hasError('required')">
+              Por favor, insira um username válido!
             </mat-error>
-            <mat-error *ngIf="email.hasError('required')">
-              E-mail é <strong>necessário</strong>
+            <mat-error *ngIf="username.hasError('required')">
+              Username é <strong>necessário</strong>
             </mat-error>
         </mat-form-field>
 
