@@ -12,7 +12,7 @@ export class LoginService{
   private urlService : String = "http://localhost:8080"
 
   criarLogin(login : Login) : Observable<Login>{
-    return this.http.post<Login>(this.urlService + "/login", login)
+    return this.http.get<Login>(this.urlService + "/login" + login)
     .pipe(
       resposta => resposta,
       erro => erro
