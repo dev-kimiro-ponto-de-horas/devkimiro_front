@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Login } from 'src/app/classes/Login';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
 
@@ -15,36 +15,40 @@ export class LoginComponent implements OnInit {
 
   registroLogin!: FormGroup;
 
-  public login: Login;
-
-  constructor( private loginService : LoginService) { }
+  constructor( private loginService : LoginService, private router : Router) { }
 
   ngOnInit(): void {
 
     this.registroLogin = new FormGroup({
-      username: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required])
+      login: new FormControl('', [Validators.required]),
+      senha: new FormControl('', [Validators.required])
     })
   }
 
-  get username() {
-    return this.registroLogin.get('username')!;
+  get login() {
+    return this.registroLogin.get('login')!;
   }
 
-  get password() {
-    return this.registroLogin.get('password')!;
+  get senha() {
+    return this.registroLogin.get('senha')!;
   }
 
-  submit(){
+  loginUsuario(){
     if(this.registroLogin.invalid){
       return;
-  }
-    this.loginService.criarLogin(this.registroLogin.value).subscribe({
-    next: (resposta) => this.login = resposta,
-    error: (erro) => console.log(erro),
-    });
-      console.log(this.registroLogin.value);
-
+    }
   }
 
+  loginFuncionario(){
+    if(this.registroLogin.invalid){
+      return;
+    }
+
+    this.loginService.logarFuncionario(this.registroLogin.value).subscribe({
+      next: (resposta) => localStorage.setItem("funcionario", resposta),
+      error: (erro) => console.log(erro)
+    })
+    console.info(localStorage.getItem("funcionario"))
+    this.router.navigate(['/principal']);
+  }
 }

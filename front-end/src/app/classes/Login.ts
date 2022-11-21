@@ -1,4 +1,5 @@
-export class Login{
-  username: String;
-  password: String;
+export class Login {
+
+  login: String;
+  senha: String;
 }

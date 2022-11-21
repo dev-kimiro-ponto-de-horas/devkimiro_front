@@ -47,6 +47,17 @@
         font-style: bold;
 
       }
+
+    }
+
+  a {
+      color: white!important;
+      text-decoration: none;
+  }
+
+  a:hover{
+    text-decoration: underline;
+
   }
 
   ::ng-deep .mat-form-field {

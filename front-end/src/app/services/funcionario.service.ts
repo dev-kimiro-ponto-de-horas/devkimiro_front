@@ -67,4 +67,20 @@ export class FuncionarioService {
       erro => erro
     )
   }
+
+  baterPontoInicio(cracha : string) : Observable<any>{
+    return this.http.post<any>(this.urlService + "funcionario/ponto/inicio/" + cracha, cracha)
+    .pipe(
+      resposta => resposta,
+      erro => erro
+    )
+  }
+
+  baterPontoSaida(cracha : string) : Observable<any>{
+    return this.http.post<any>(this.urlService + "funcionario/ponto/saida/" + cracha, cracha)
+    .pipe(
+      resposta => resposta,
+      erro => erro
+    )
+  }
 }

@@ -13,40 +13,42 @@
 
       <div class="w-100">
 
-        <form (ngSubmit)="submit()" [formGroup]="registroLogin">
+        <form [formGroup]="registroLogin">
 
         <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
-            <mat-label>Username:</mat-label>
-              <input class="input" matInput placeholder="Digite aqui seu e-mail..." formControlName="username">
-            <mat-icon matSuffix class="username">username</mat-icon>
-            <mat-error *ngIf="username.hasError('email') && !username.hasError('required')">
-              Por favor, insira um username válido!
+            <mat-label>Login / Cracha:</mat-label>
+              <input class="input" matInput placeholder="Digite aqui seu e-mail..." formControlName="login">
+            <mat-icon matSuffix class="login">username</mat-icon>
+            <mat-error *ngIf="login.hasError('email') && !login.hasError('required')">
+              Por favor, insira um login válido!
             </mat-error>
-            <mat-error *ngIf="username.hasError('required')">
-              Username é <strong>necessário</strong>
+            <mat-error *ngIf="login.hasError('required')">
+              login é <strong>necessário</strong>
             </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
             <mat-label>Senha:</mat-label>
                 <input matInput [type]="hide ? 'password' : 'text'"
-                class="input" placeholder="Digite aqui sua senha..." formControlName="password">
+                class="input" placeholder="Digite aqui sua senha..." formControlName="senha">
                <button mat-icon-button matSuffix (click)="hide= !hide"
                 [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon class="password">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
-                <mat-error *ngIf="password.hasError('password') && !password.hasError('required')">
+                <mat-error *ngIf="senha.hasError('senha') && !senha.hasError('required')">
                   Por favor, insira uma senha válida!
                 </mat-error>
-                <mat-error *ngIf="password.hasError('required')">
+                <mat-error *ngIf="senha.hasError('required')">
                   Senha é <strong>necessária</strong>
                 </mat-error>
         </mat-form-field>
 
-        <div class="d-flex justify-content-center align-items-center mt-2 mb-5 w-100 px-3">
+        <div class="d-flex justify-content-center align-items-center mt-2 mb-4 w-100 px-3">
+          <button type="submit" (click)="loginFuncionario()"  class="botao fs-6 text-white w-50" mat-raised-button color="primary"> Login </button>
+        </div>
 
-          <button type="submit"  class="botao fs-6 text-white w-50" mat-raised-button color="primary"> Entrar </button>
-
+        <div class="d-flex justify-content-center align-items-center mt-2 mb-4 w-100 px-3">
+          <button type="submit" (click)="loginUsuario()"  class="botao fs-6 text-white w-50" mat-raised-button color="primary"> Login Administrador </button>
         </div>
 
       </form>

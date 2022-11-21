@@ -1,14 +1,14 @@
+import { Calendario } from "./Calendario";
+
 export class Funcionario {
 
     id?: number;
-    nome: String;
-    email: String;
-    // login: String;
-    // role: String;
-    cracha: String;
-    senha: String;
-    nomeCargo: String;
-    nomeSetor: String;
-    //calendario: Calendario[]
+    nome: string;
+    email: string;
+    cracha: string;
+    senha: string;
+    nomeCargo: string;
+    nomeSetor: string;
+    calendario: Calendario[]
 
 }

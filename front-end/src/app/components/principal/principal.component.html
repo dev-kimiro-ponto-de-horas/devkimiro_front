@@ -14,18 +14,18 @@
                 <img class="imagem-usuario px-2 py-2 mb-2" src="../../../assets/img/usuario-logo.png" alt="imagem-usuario-logo">
               </div>
 
-                <h2 matTooltip="Nome do Funcionário" matTooltipClass="example-tooltip-red" class="text-center">Pedro</h2>
+                <h2 matTooltip="Nome do Funcionário" matTooltipClass="example-tooltip-red" class="text-center">{{funcionario.nome}}</h2>
 
                 <div class="d-flex justify-content-left align-items-center gap-3">
-                  <mat-icon matTooltip="Cargo do Funcionário" matTooltipClass="example-tooltip-red">business</mat-icon> <p>Ajudante de Pedreiro</p>
+                  <mat-icon matTooltip="Cargo do Funcionário" matTooltipClass="example-tooltip-red">business</mat-icon> <p>{{funcionario.nomeCargo}}</p>
                 </div>
 
                 <div class="d-flex justify-content-left align-items-center gap-3">
-                  <mat-icon matTooltip="Setor do Funcionário" matTooltipClass="example-tooltip-red">people</mat-icon> <p>Padaria</p>
+                  <mat-icon matTooltip="Setor do Funcionário" matTooltipClass="example-tooltip-red">people</mat-icon> <p>{{funcionario.nomeSetor}}</p>
                 </div>
 
                 <div class="d-flex justify-content-left align-items-center gap-3">
-                  <mat-icon matTooltip="Email do Funcionário" matTooltipClass="example-tooltip-red">email</mat-icon> <p>pedro@damaso.com</p>
+                  <mat-icon matTooltip="Email do Funcionário" matTooltipClass="example-tooltip-red">email</mat-icon> <p>{{funcionario.email}}</p>
                 </div>
 
               </div>
@@ -46,8 +46,12 @@
 
         </div>
 
+        <div class="d-flex justify-content-center align-items-right mb-3">
+            <button (click)="baterPontoInicio()" class="w-50" mat-flat-button color="primary">Bater Ponto Entrada!</button>
+        </div>
+
         <div class="d-flex justify-content-center align-items-right">
-            <button class="w-50" mat-flat-button color="primary">Bater Ponto!</button>
+            <button (click)="baterPontoSaida()" class="w-50" mat-flat-button color="primary">Bater Ponto Saída!</button>
         </div>
 
     </div>
