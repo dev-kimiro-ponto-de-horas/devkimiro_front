@@ -33,22 +33,32 @@ export class LoginComponent implements OnInit {
     return this.registroLogin.get('senha')!;
   }
 
-  loginUsuario(){
-    if(this.registroLogin.invalid){
-      return;
-    }
-  }
-
   loginFuncionario(){
     if(this.registroLogin.invalid){
       return;
     }
 
-    this.loginService.logarFuncionario(this.registroLogin.value).subscribe({
-      next: (resposta) => localStorage.setItem("funcionario", resposta),
-      error: (erro) => console.log(erro)
+    this.loginService.logarFuncionario(this.registroLogin.value).subscribe( resposta => {
+      localStorage.setItem("funcionario", resposta);
+      console.info(localStorage.getItem("funcionario"));
+      this.router.navigate(['/principal']);
+    },
+    erro => {
+      console.log(erro);
     })
-    console.info(localStorage.getItem("funcionario"))
-    this.router.navigate(['/principal']);
+  }
+
+  loginUsuario(){
+    // if(this.registroLogin.invalid){
+    //   return;
+    // }
+
+    this.loginService.logarUsuario(this.registroLogin.value).subscribe( resposta => {
+      console.log(resposta);
+      // this.router.navigate(['/principal'])
+    },
+    erro => {
+      console.log(erro);
+    })
   }
 }
