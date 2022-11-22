@@ -18,7 +18,6 @@ export class LoginComponent implements OnInit {
   constructor( private loginService : LoginService, private router : Router) { }
 
   ngOnInit(): void {
-
     this.registroLogin = new FormGroup({
       login: new FormControl('', [Validators.required]),
       senha: new FormControl('', [Validators.required])
@@ -47,18 +46,5 @@ export class LoginComponent implements OnInit {
       console.log(erro);
     })
   }
-
-  loginUsuario(){
-    // if(this.registroLogin.invalid){
-    //   return;
-    // }
-
-    this.loginService.logarUsuario(this.registroLogin.value).subscribe( resposta => {
-      console.log(resposta);
-      // this.router.navigate(['/principal'])
-    },
-    erro => {
-      console.log(erro);
-    })
-  }
 }
+

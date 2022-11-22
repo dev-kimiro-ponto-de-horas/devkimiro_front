@@ -31,13 +31,13 @@
   z-index: 10;
   width: 40%;
   min-width: 250px;
-  background-color: rgba(255, 255, 255, 0.20);
+  background-color: rgba(255, 255, 255, 0.788);
 
   .titulo {
     padding: 0;
     margin: 0;
     height: 2em;
-    color: white;
+    color: black;
 
     h1 {
         font-size: 3.8em;
@@ -48,15 +48,15 @@
       }
 
     h3 {
-      font-family: 'Anton', sans-serif;
-      font-size: 2em;
-      text-align:center;
+        font-family: 'Anton', sans-serif;
+        font-size: 2em;
+        text-align:center;
     }
 
-    }
+  }
 
   a {
-      color: white!important;
+      color: black!important;
       text-decoration: none;
   }
 
@@ -68,18 +68,18 @@
   ::ng-deep .mat-form-field {
 
     .mat-input-element {
-        color: white;
+        color: black;
     }
     .mat-form-field-label {
-        color: white;
+        color: black;
     }
 
     .mat-form-field-underline {
-      background-color: white;
+      background-color: black;
     }
 
     .mat-form-field-underline:hover {
-      background-color: white;
+      background-color: black;
     }
 
   }
@@ -87,19 +87,19 @@
   ::ng-deep .mat-form-field.mat-focused {
 
     .mat-form-field-label {
-        color: white;
+        color: black;
 
     }
     .mat-input-element {
-        color: white;
+        color: black;
     }
 
     .mat-form-field-required-marker {
-      color: white;
+      color: black;
   }
 
   .mat-form-field-ripple {
-    background-color: white;
+    background-color: black;
   }
 
   }
@@ -108,7 +108,7 @@
   .password,
   .input,
   .input::placeholder {
-      color: white;
+      color: black;
 
     }
 }

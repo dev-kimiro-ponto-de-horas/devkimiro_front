@@ -19,12 +19,4 @@ export class LoginService{
       erro => erro
     )
   }
-
-  logarUsuario(login : Login) : Observable<string>{
-    return this.http.get<string>(this.urlService + "/usuario/login/" + login.login + "/" + login.senha)
-    .pipe(
-      resposta => resposta,
-      erro => erro
-    )
-  }
 }

@@ -22,6 +22,8 @@ import { CargoComponent } from './components/cargo/cargo.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import { FuncionarioComponent } from './components/funcionario/funcionario.component';
 import { EquipeComponent } from './components/equipe/equipe.component';
+import { LoginADMINComponent } from './components/login-admin/login-admin.component';
+import { NavbarAdminComponent } from './components/navbar-admin/navbar-admin.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { EquipeComponent } from './components/equipe/equipe.component';
     UsuarioComponent,
     FuncionarioComponent,
     EquipeComponent,
+    LoginADMINComponent,
+    NavbarAdminComponent,
   ],
   imports: [
     BrowserModule,
