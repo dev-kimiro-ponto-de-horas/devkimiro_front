@@ -73,19 +73,19 @@
 ## 📸 Screenshots do Projeto
 
 ### Tela Login:
-(![image](https://user-images.githubusercontent.com/98130954/203659861-d07ed67b-3e2f-4926-b75c-b50f3f5ceb2f.png)
+![image](https://user-images.githubusercontent.com/98130954/203659861-d07ed67b-3e2f-4926-b75c-b50f3f5ceb2f.png)
 ### Tela Principal:
-(![image](https://user-images.githubusercontent.com/98130954/203660433-3f32f914-018a-42b2-b708-0942a28f26a3.png)
+![image](https://user-images.githubusercontent.com/98130954/203660433-3f32f914-018a-42b2-b708-0942a28f26a3.png)
 ### Tela Funconário:
-(![image](https://user-images.githubusercontent.com/98130954/203659987-7a77b186-33af-481a-81de-b5eb85ecb176.png)
+![image](https://user-images.githubusercontent.com/98130954/203659987-7a77b186-33af-481a-81de-b5eb85ecb176.png)
 ### Tela Setores:
-(![image](https://user-images.githubusercontent.com/98130954/203660156-27548317-9fb9-455d-bb43-63c5814716ad.png)
+![image](https://user-images.githubusercontent.com/98130954/203660156-27548317-9fb9-455d-bb43-63c5814716ad.png)
 ### Tela Cargos:
-(![image](https://user-images.githubusercontent.com/98130954/203660092-70eea7fc-e4d8-491a-8a57-c9a238cc716f.png)
+![image](https://user-images.githubusercontent.com/98130954/203660092-70eea7fc-e4d8-491a-8a57-c9a238cc716f.png)
 ### Tela Administrador:
-(![image](https://user-images.githubusercontent.com/98130954/203660506-62639221-736c-432b-b38a-779216d1db2f.png)
+![image](https://user-images.githubusercontent.com/98130954/203660506-62639221-736c-432b-b38a-779216d1db2f.png)
 ### Tela Horas:
-(![image](https://user-images.githubusercontent.com/98130954/203660233-d8dbec42-8c2e-46c1-8baa-3937874c6724.png)
+![image](https://user-images.githubusercontent.com/98130954/203660233-d8dbec42-8c2e-46c1-8baa-3937874c6724.png)
 
 ## 👨‍🎓 Autores
 
