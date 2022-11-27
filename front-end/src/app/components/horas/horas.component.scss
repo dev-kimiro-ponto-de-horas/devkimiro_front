@@ -1,0 +1,15 @@
+.horas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom, #605ee0, #7472de, #8786da, #9a9ad6, #adadd0);
+}
+
+.espaco-card {
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  overflow: scroll;
+  overflow-x: hidden;
+  background-color: rgba(255, 255, 255, 0.650);
+}
+
+

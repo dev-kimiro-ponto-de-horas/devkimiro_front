@@ -1,0 +1,21 @@
+<div class="navbar d-flex justify-content-center align-items-center">
+
+  <div class="navbar-imagem">
+    <img class="logo" src="../../../assets/img/DevKimiro frase recorte (300 × 300 px).png" alt="background-logo">
+  </div>
+
+  <div class="navbar-ancora d-flex justify-content-center align-items-center">
+    <a [routerLink] = "['/setor']">Setor</a>
+    <a [routerLink] = "['/cargo']">Cargo</a>
+    <a [routerLink] = "['/usuario']">Usuário</a>
+    <a [routerLink] = "['/funcionario']">Funcionário</a>
+    <a [routerLink]="['/equipe']">Equipe</a>
+  </div>
+
+  <div class="navbar-sair">
+    <button (click)="apagar()" [routerLink] = "['/login']" mat-fab color="primary">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </div>
+
+</div>

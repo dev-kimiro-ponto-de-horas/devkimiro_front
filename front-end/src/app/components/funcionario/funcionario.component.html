@@ -1,0 +1,227 @@
+<app-navbar-admin></app-navbar-admin>
+
+<div class="w-100 h-100 setor">
+
+  <div class="w-100 h-100 d-flex justify-content-center align-items-center flex-column">
+
+    <div id="espaco-card" class="w-75 mb-3 espaco-card rounded-3">
+
+      <div class="my-2">
+        <h1 style="font-family: 'Anton', sans-serif; font-size: 3em;" class="text-center text-white mt-4">Todos os Funcionários:</h1>
+      </div>
+
+      <div class="divisao-card d-flex justify-content-center align-items-center flex-wrap">
+        <div *ngFor="let funcionario of funcionarios" class="card elemento-card rounded-3 d-flex justify-content-center align-items-center mx-5 my-5 px-3 py-3">
+
+          <h2>Nome: {{funcionario.nome}}</h2>
+          <h3>Email: {{funcionario.email}}</h3>
+          <h3>Cargo: {{funcionario.nomeCargo}}</h3>
+          <h3 class="mb-5">Setor: {{funcionario.nomeSetor}}</h3>
+
+          <button mat-flat-button color="warn" (click)="deletarFuncionario(funcionario.id)">Deletar</button>
+
+        </div>
+      </div>
+
+    </div>
+
+    <a mat-fab color="accent">
+      <mat-icon>arrow_downward</mat-icon>
+    </a>
+
+  </div>
+
+</div>
+
+<div class=" w-100 espaco-formulario">
+
+  <div class="w-100 d-flex justify-content-center align-items-center flex-column">
+
+    <div class="w-50 criar-funcionario px-2 mb-5 rounded-3 py-2 campo-formulario d-flex justify-content-center align-items-center flex-column">
+
+      <div class="mb-2 py-2">
+        <h1>Criar Funcionario</h1>
+      </div>
+
+      <form [formGroup]="registroFuncionario">
+
+        <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
+            <mat-label>Email:</mat-label>
+              <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="email">
+            <mat-icon matSuffix>alternate_email</mat-icon>
+            <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+              Por favor, insira um e-mail válido!
+            </mat-error>
+            <mat-error *ngIf="email.hasError('required')">
+              E-mail é <strong>necessário</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
+          <mat-label>Nome:</mat-label>
+            <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="nome">
+          <mat-icon matSuffix>person_pin</mat-icon>
+          <mat-error *ngIf="nome.hasError('nome') && !nome.hasError('required')">
+            Por favor, insira um nome válido!
+          </mat-error>
+          <mat-error *ngIf="nome.hasError('required')">
+            Nome é <strong>necessário</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
+          <mat-label>Selecione o nome do Setor</mat-label>
+          <mat-select formControlName="nomeSetor">
+            <mat-option value="{{setor.nomeSetor}}" *ngFor="let setor of setores">{{setor.nomeSetor}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="nomeSetor.hasError('required')">Você precisa selecionar um setor!</mat-error>
+          <mat-error *ngIf="nomeSetor.hasError('pattern') && !nomeSetor.hasError('required')">
+            Setor Inválido!
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
+          <mat-label>Selecione o nome do Cargo</mat-label>
+          <mat-select formControlName="nomeCargo">
+            <mat-option value="{{cargo.nomeCargo}}" *ngFor="let cargo of cargos">{{cargo.nomeCargo}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="nomeCargo.hasError('required')">Você precisa selecionar um cargo!</mat-error>
+          <mat-error *ngIf="nomeCargo.hasError('pattern') && !nomeCargo.hasError('required')">
+            Cargo Inválido!
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
+          <mat-label>Cracha:</mat-label>
+            <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="cracha">
+          <mat-icon matSuffix>assignment_ind</mat-icon>
+          <mat-error *ngIf="cracha.hasError('cracha') && !cracha.hasError('required')">
+            Por favor, insira um cracha válido!
+          </mat-error>
+          <mat-error *ngIf="cracha.hasError('required')">
+            E-mail é <strong>necessário</strong>
+          </mat-error>
+         </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
+          <mat-label>Senha:</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'"
+              class="input" placeholder="Digite aqui sua senha..." formControlName="senha">
+              <button mat-icon-button matSuffix (click)="hide= !hide"
+              [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon class="password">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-error *ngIf="senha.hasError('senha') && !senha.hasError('required')">
+                Por favor, insira uma senha válida!
+              </mat-error>
+              <mat-error *ngIf="senha.hasError('required')">
+                Senha é <strong>necessária</strong>
+              </mat-error>
+      </mat-form-field>
+
+        <div class="d-flex justify-content-center align-items-center mt-2 mb-3 w-100 px-3">
+
+          <button (click)="submit()" class="botao fs-6 text-white w-50" mat-raised-button color="primary"> Criar Funcionário! </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+    <div class="w-50 px-2 mb-5 rounded-3 py-2 campo-formulario d-flex justify-content-center align-items-center flex-column">
+
+      <div class="mb-2 py-2">
+        <h1>Atualizar Funcionario</h1>
+      </div>
+
+      <form [formGroup]="registroFuncionarioAtualizar">
+
+        <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
+          <mat-label>Selecione o Funcionário:</mat-label>
+          <mat-select formControlName="cracha">
+            <mat-option value="{{funcionario.cracha}}" *ngFor="let funcionario of funcionarios">{{funcionario.nome}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
+            <mat-label>Email:</mat-label>
+              <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="email">
+            <mat-icon matSuffix>alternate_email</mat-icon>
+            <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+              Por favor, insira um e-mail válido!
+            </mat-error>
+            <mat-error *ngIf="email.hasError('required')">
+              E-mail é <strong>necessário</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
+          <mat-label>Nome:</mat-label>
+            <input class="input" matInput placeholder="Digite aqui o nome do responsável pelo setor..." formControlName="nome">
+          <mat-icon matSuffix>person_pin</mat-icon>
+          <mat-error *ngIf="nome.hasError('nome') && !nome.hasError('required')">
+            Por favor, insira um nome válido!
+          </mat-error>
+          <mat-error *ngIf="nome.hasError('required')">
+            Nome é <strong>necessário</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
+          <mat-label>Selecione o nome do Setor</mat-label>
+          <mat-select formControlName="nomeSetor">
+            <mat-option value="{{setor.nomeSetor}}" *ngFor="let setor of setores">{{setor.nomeSetor}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="nomeSetor.hasError('required')">Você precisa selecionar um setor!</mat-error>
+          <mat-error *ngIf="nomeSetor.hasError('pattern') && !nomeSetor.hasError('required')">
+            Setor Inválido!
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
+          <mat-label>Selecione o nome do Cargo</mat-label>
+          <mat-select formControlName="nomeCargo">
+            <mat-option value="{{cargo.nomeCargo}}" *ngFor="let cargo of cargos">{{cargo.nomeCargo}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="nomeCargo.hasError('required')">Você precisa selecionar um cargo!</mat-error>
+          <mat-error *ngIf="nomeCargo.hasError('pattern') && !nomeCargo.hasError('required')">
+            Cargo Inválido!
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100 px-5 mt-2">
+          <mat-label>Senha:</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'"
+              class="input" placeholder="Digite aqui sua senha..." formControlName="senha">
+              <button mat-icon-button matSuffix (click)="hide= !hide"
+              [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon class="password">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-error *ngIf="senha.hasError('senha') && !senha.hasError('required')">
+                Por favor, insira uma senha válida!
+              </mat-error>
+              <mat-error *ngIf="senha.hasError('required')">
+                Senha é <strong>necessária</strong>
+              </mat-error>
+      </mat-form-field>
+
+        <div class="d-flex justify-content-center align-items-center mt-2 mb-3 w-100 px-3">
+
+          <button (click)="submitUpdate()" class="botao fs-6 text-white w-50" mat-raised-button color="primary"> Atualizar Funcionário! </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+    <a class="mb-5" mat-fab color="accent">
+      <mat-icon>arrow_upward</mat-icon>
+    </a>
+
+  </div>
+
+</div>
+
+<app-rodape></app-rodape>

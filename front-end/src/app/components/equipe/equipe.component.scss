@@ -1,0 +1,46 @@
+.espaco-integrantes {
+  position: relative;
+  width: 100%;
+  background-image: linear-gradient(to bottom, #605ee0, #7472de, #8786da, #9a9ad6, #adadd0);
+
+  .titulo {
+    margin-top: 90px;
+    margin-bottom: 30px;
+  }
+
+  h2,h3 {
+    font-size: 2.5em;
+    font-family: 'Anton', sans-serif;
+    font-style: bold;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    font-size: 3.8em;
+    margin: 0;
+    padding: 0;
+    font-family: 'Anton', sans-serif;
+    font-style: bold;
+    color: white;
+  }
+
+  i {
+    font-size: 3.4em;
+    margin: 0;
+    padding: 0;
+  }
+
+  .tamanho-carousel {
+    width: 35%!important;
+  }
+
+  .integrante {
+    filter: grayscale(100);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .integrante:hover {
+    filter: grayscale(0);
+  }
+}

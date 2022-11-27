@@ -1,0 +1,49 @@
+<div class="login">
+
+  <img class="login-background" src="../../../assets/img/imagem-login-admin.png" alt="background">
+  <img class="login-logo" src="../../../assets/img/DevKimiro.png" alt="background-logo">
+
+  <main class="w-100 h-100 d-flex justify-content-center align-items-center">
+
+    <div class="box-login rounded-3 d-flex justify-content-center align-items-center flex-column">
+
+      <div class="titulo mb-5 py-5">
+        <h1 class="fw-3 mb-4">Ponto de Horas</h1>
+        <h3>Administradores</h3>
+      </div>
+
+      <div class="w-100 mt-3">
+
+        <form (ngSubmit)="loginAdmin()"  [formGroup]="registroAdmin">
+
+        <mat-form-field appearance="outline" class="w-100 px-5 mt-2 mb-2">
+            <mat-label>Login:</mat-label>
+              <input class="input" matInput placeholder="Digite aqui seu e-mail..." formControlName="login">
+              <mat-icon class="input" matSuffix>person</mat-icon>
+            <mat-error *ngIf="login.hasError('login') && !login.hasError('required')">
+              Por favor, insira um login válido!
+            </mat-error>
+            <mat-error *ngIf="login.hasError('required')">
+              login é <strong>necessário</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <a [routerLink]="['/login']" class="ps-5" >Funcionário ?</a>
+
+        <div class="d-flex justify-content-center align-items-center mt-2 mb-4 w-100 px-3 mt-3">
+          <button type="submit" class="botao fs-6 text-white w-50" mat-raised-button color="primary"> Login </button>
+        </div>
+
+      </form>
+
+      </div>
+
+    </div>
+
+  </main>
+
+    <footer class="rodape d-flex justify-content-center align-items-center">
+        <span>Todos os direitos reservados @2022</span>
+    </footer>
+
+</div>

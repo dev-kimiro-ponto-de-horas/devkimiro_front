@@ -1,0 +1,114 @@
+.login {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  &-background {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
+
+  &-logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+  }
+
+  .rodape {
+    position: relative;
+    font-size: 1.2em;
+    bottom: 65px;
+    z-index: 10;
+    color: white;
+  }
+}
+
+.box-login {
+  position: absolute;
+  z-index: 10;
+  width: 40%;
+  min-width: 250px;
+  background-color: rgba(255, 255, 255, 0.20);
+
+  .titulo {
+    padding: 0;
+    margin: 0;
+    height: 2em;
+    color: white;
+
+    h1 {
+        font-size: 3.8em;
+        margin: 0;
+        padding: 0;
+        font-family: 'Anton', sans-serif;
+        font-style: bold;
+      }
+
+    h3 {
+      font-family: 'Anton', sans-serif;
+      font-size: 2em;
+      text-align:center;
+    }
+
+    }
+
+  a {
+      color: white!important;
+      text-decoration: none;
+  }
+
+  a:hover{
+    text-decoration: underline;
+
+  }
+
+  ::ng-deep .mat-form-field {
+
+    .mat-input-element {
+        color: white;
+    }
+    .mat-form-field-label {
+        color: white;
+    }
+
+    .mat-form-field-underline {
+      background-color: white;
+    }
+
+    .mat-form-field-underline:hover {
+      background-color: white;
+    }
+
+  }
+
+  ::ng-deep .mat-form-field.mat-focused {
+
+    .mat-form-field-label {
+        color: white;
+
+    }
+    .mat-input-element {
+        color: white;
+    }
+
+    .mat-form-field-required-marker {
+      color: white;
+  }
+
+  .mat-form-field-ripple {
+    background-color: white;
+  }
+
+  }
+
+  .email,
+  .password,
+  .input,
+  .input::placeholder {
+      color: white;
+
+    }
+}
