@@ -13,7 +13,7 @@ export class LoginService{
   private urlService : String = "http://localhost:8080"
 
   logarFuncionario(login : Login) : Observable<string>{
-    return this.http.get<string>(this.urlService + "/funcionario/login/" + login.login + "/" + login.senha)
+    return this.http.get<string>(this.urlService + "/funcionario/login/" + login.login)
     .pipe(
       resposta => resposta,
       erro => erro
